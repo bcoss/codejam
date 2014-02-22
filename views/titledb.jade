@@ -1,9 +1,0 @@
-extends layout
-
-block content
-    h1.
-        Titles
-    ul
-        each title, i in gametitles
-            li
-                a(href="mailto:#{user.email}")= gametitles.title
