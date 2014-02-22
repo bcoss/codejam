@@ -1,0 +1,17 @@
+extends layout
+
+block css
+    link(rel='stylesheet', href='/stylesheets/snake.css')
+
+block javascript
+    script(src='/javascripts/jquery/jquery-2.1.0.min.js')
+
+block content
+    div#game-holder
+
+    script(src='/javascripts/endgate/endgate-0.2.1.min.js')
+
+    script(src='/javascripts/snake/Snake.js')
+    script(src='/javascripts/snake/Game.js')
+    script(src='/javascripts/snake/app.js')
+

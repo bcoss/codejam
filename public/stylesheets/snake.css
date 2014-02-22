@@ -1,0 +1,8 @@
+#game-holder {
+    width: 800px;
+    height: 800px;
+    margin: 100px auto;
+    text-align: center;
+    background-color: white;
+    border: 3px black;
+}
