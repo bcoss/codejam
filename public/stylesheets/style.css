@@ -1,8 +1,19 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background-color: midnightblue;
 }
 
-a {
-  color: #00B7FF;
+.game-name {
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    font-weight: 400;
+    font-size: 60pt;
+    color: white;
+}
+
+.you-should-code {
+    text-align: center;
+    margin: 300px auto 50px;
+    font-size: 16pt;
+    color: white;
 }
