@@ -13,7 +13,7 @@ var Core;
         function Game(canvas) {
             _super.call(this, canvas);
 
-            this.snake = new Entities.Snake(1, 15, 10, this.Scene);
+            this.snake = new Entities.Snake(15, 10, this.Scene, this.Input);
         }
         Game.prototype.Initialize = function () {
             var grid = new EndGate.Graphics.Grid(400, 400, 25, 25, 32, 32, true, EndGate.Graphics.Color.Black);

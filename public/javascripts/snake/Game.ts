@@ -8,7 +8,7 @@ module Core {
         constructor(canvas: HTMLCanvasElement) {
             super(canvas);
 
-            this.snake = new Entities.Snake(1, 15, 10, this.Scene);
+            this.snake = new Entities.Snake(15, 10, this.Scene, this.Input);
         }
 
         public Initialize(): void {
