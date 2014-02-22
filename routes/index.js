@@ -2,18 +2,16 @@
 /*
  * GET home page.
  */
+var app = require("../app.js");
 
 exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
-};
+    app.db.gametitles.find(function(err, results) {
+        var index = Math.floor(Math.random() * results.length);
 
-exports.titlelist = function(db) {
-    return function(req, res) {
-        var collection = db.get('gametitles');
-        collection.find({},{},function(e,docs){
-            res.render('titlelist', {
-                "titlelist" : docs
-            });
+        res.render('index', {
+            "extralink": "Generate game concept",
+            "extraloc": "/generator",
+            "gametitle" : results[index].title
         });
-    };
+    });
 };

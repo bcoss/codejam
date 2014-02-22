@@ -1,14 +1,24 @@
 body {
-    background-color: cadetblue;
+    background-color: #203763;
 }
 
 .game-name {
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto 25px;
     text-align: center;
     font-weight: 400;
     font-size: 60pt;
     color: white;
+}
+
+.extra-links {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.link {
+    color:whitesmoke;
+    font-size: 20pt;
 }
 
 .you-should-code {
@@ -16,4 +26,12 @@ body {
     margin: 300px auto 50px;
     font-size: 16pt;
     color: white;
+}
+
+#chase {
+    text-align: center;
+    color:white;
+    position: absolute;
+    bottom: 0;
+    right: 0;
 }

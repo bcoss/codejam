@@ -1,6 +1,18 @@
 extends layout
+
 block content
     p.you-should-code
-    | You should code...
+        | You should code...
     h1.game-name
-    | PONG
+        | #{gametitle}
+    div.extra-links
+        a.link(href="/") Another!
+        | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        a.link(href="#{extraloc}") #{extralink}
+    div#chase
+        p Click for Dr. Chase's
+            br
+            | recommendation!
+
+        a(href="/snake")
+            img(src='images/chase.png')

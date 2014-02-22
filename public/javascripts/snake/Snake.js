@@ -46,7 +46,7 @@ var Entities;
             });
         }
         Snake.prototype.Update = function (gameTime) {
-            if (gameTime.Total.Milliseconds - this.lastMoveTime > this.moveIteration) {
+            if (gameTime.Total.Milliseconds - this.lastMoveTime > this.moveIteration * (1 - (this.segs.length / 100))) {
                 this.lastMoveTime = gameTime.Total.Milliseconds;
 
                 this.Move();

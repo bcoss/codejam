@@ -66,7 +66,7 @@ module Entities {
         }
 
         public Update(gameTime: EndGate.GameTime): void {
-            if(gameTime.Total.Milliseconds - this.lastMoveTime > this.moveIteration) {
+            if(gameTime.Total.Milliseconds - this.lastMoveTime > this.moveIteration * (1 - (this.segs.length / 100))) {
                 this.lastMoveTime = gameTime.Total.Milliseconds;
 
                 this.Move();

@@ -7,7 +7,7 @@
 
 var express = require('express');
 var routes = require('./routes');
-var user = require('./routes/user');
+var generator = require('./routes/generator');
 var snake = require('./routes/snake');
 var http = require('http');
 var path = require('path');
@@ -15,21 +15,27 @@ var path = require('path');
 var app = express();
 
 //mongo stuff
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/codejam');
+var mongojs = require('mongojs');
+
+var dbUri = "localhost/codejam"
+var collections = ["gametitles", "genres", "nouns", "actions"];
+var db = mongojs.connect(dbUri, collections);
+
+exports.db = db;
 
 // all environments
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
+app.configure(function () {
+    app.set('port', process.env.PORT || 3000);
+    app.set('views', path.join(__dirname, 'views'));
+    app.set('view engine', 'jade');
+    app.use(express.favicon());
+    app.use(express.logger('dev'));
+    app.use(express.json());
+    app.use(express.urlencoded());
+    app.use(express.methodOverride());
+    app.use(app.router);
+    app.use(express.static(path.join(__dirname, 'public')));
+});
 
 // development only
 if ('development' == app.get('env')) {
@@ -37,9 +43,7 @@ if ('development' == app.get('env')) {
 }
 
 app.get('/', routes.index);
-app.get('/users', user.list);
-
-app.get('/titlelist',routes.titlelist(db));
+app.get('/generator', generator.index);
 
 app.get('/snake', snake.show);
 
