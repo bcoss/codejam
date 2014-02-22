@@ -7,12 +7,12 @@ exports.index = function(req, res){
   res.render('index', { title: 'Express' });
 };
 
-exports.codejam = function(db) {
+exports.titlelist = function(db) {
     return function(req, res) {
         var collection = db.get('gametitles');
         collection.find({},{},function(e,docs){
-            res.render('gametitles', {
-                "codejam" : docs
+            res.render('titlelist', {
+                "titlelist" : docs
             });
         });
     };
