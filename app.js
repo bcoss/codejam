@@ -3,10 +3,7 @@
  * Module dependencies.
  */
 
-    //mongo stuff
-var mongo = require('mongodb');
-var monk = require('monk');
-var db = monk('localhost:27017/title');
+
 
 var express = require('express');
 var routes = require('./routes');
@@ -16,6 +13,11 @@ var http = require('http');
 var path = require('path');
 
 var app = express();
+
+//mongo stuff
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27017/codejam');
 
 // all environments
 app.set('port', process.env.PORT || 3000);
@@ -37,7 +39,7 @@ if ('development' == app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 
-app.get('/title',routes.game_titles(db));
+app.get('/titlelist',routes.titlelist(db));
 
 app.get('/snake', snake.show);
 

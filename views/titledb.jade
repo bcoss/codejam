@@ -2,8 +2,8 @@ extends layout
 
 block content
     h1.
-        User List
+        Titles
     ul
-        each title, i in title
+        each title, i in gametitles
             li
-                a(href="mailto:#{user.email}")= title.title
+                a(href="mailto:#{user.email}")= gametitles.title
