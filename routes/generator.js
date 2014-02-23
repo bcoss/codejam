@@ -10,6 +10,7 @@ exports.index = function(req, res){
                 var aIndex = Math.floor(Math.random() * actions.length);
                 res.render('index',
                     {
+			"current": "/generator",
                         "extralink": "Clone this game",
                         "extraloc": "/",
                         "gametitle" : genres[gIndex].title + " game where " + nouns[nIndex].title + " " + actions[aIndex].title + "."
